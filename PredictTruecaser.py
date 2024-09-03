@@ -1,6 +1,6 @@
 from Truecaser import *
 import os
-import cPickle
+import pickle as cPickle
 import nltk
 import string
 import argparse
@@ -10,7 +10,7 @@ import fileinput
 if __name__ == "__main__":       
     parser = argparse.ArgumentParser()
     parser.add_argument('files', metavar='FILE', nargs='*', help='files to truecase, if empty, STDIN is used')
-    parser.add_argument('-d', '--distribution_object', help='language distribution file', type=os.path.abspath, required=True)
+    parser.add_argument('-d', '--distribution_object', help='language distribution file. Default "distributions.obj"', type=os.path.abspath, default='distributions.obj')
     args = parser.parse_args()
 
     f = open(args.distribution_object, 'rb')
